@@ -2,7 +2,7 @@ package com.kodilla;
 
 class Euklides {
     public static void main (String[] args) {
-        int a = 50;
+        int a = 40;
         int b = 3;
 
         while(a!=b) {

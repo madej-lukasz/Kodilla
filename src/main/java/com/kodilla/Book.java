@@ -37,7 +37,7 @@ class BookList {
         for(int i= 0; i< milion; i++) {
             bookList.add(new Book("Author" +i, "Title " +i));
         }
-        Book linkBook = new Book("Miczkiewicz", "Pan Tadeusz");
+        Book linkBook = new Book("Miczkiewicz ", "Pan Tadeusz");
 
         System.out.println("Start");
         System.out.println("LinkedList");

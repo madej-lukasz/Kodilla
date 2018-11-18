@@ -7,7 +7,7 @@ public class Kalkulator {
     public static void main(String args[]) {
         Kalkulator calculator = new Kalkulator();
         calculator.someMethod();
-        System.out.println("It works!!");
+        System.out.println("It works !!!");
     }
 
 }
