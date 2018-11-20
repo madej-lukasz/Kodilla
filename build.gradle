@@ -25,6 +25,10 @@ repositories {
 
 
 dependencies {
-    implementation('org.springframework.boot:spring-boot-starter-web')
-    testImplementation('org.springframework.boot:spring-boot-starter-test')
+    // External Dependencies
+    compile('org.springframework.boot:spring-boot-starter-web')
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+
+    // Test Dependencies
+    testCompile ('junit:junit:4.12')
 }
