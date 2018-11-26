@@ -1,5 +1,4 @@
 package com.kodilla;
-
 import java.util.HashMap;
 import java.util.LinkedList;
 
@@ -37,7 +36,7 @@ class BookList {
         for(int i= 0; i< milion; i++) {
             bookList.add(new Book("Author" +i, "Title " +i));
         }
-        Book linkBook = new Book("Miczkiewicz ", "Pan Tadeusz");
+        Book linkBook = new Book("Miczkiewicz", "Pan Tadeusz");
 
         System.out.println("Start");
         System.out.println("LinkedList");
@@ -61,7 +60,7 @@ class BookList {
         System.out.println("Adding last element has taken: " + (end-begin));
 
         begin = System.nanoTime();
-        bookList.remove(bookList);
+        bookList.remove(bookList.size()-1);
         end = System.nanoTime();
 
         System.out.println("Remove last element has taken: " + (end-begin));
@@ -73,6 +72,7 @@ class BookList {
 
         }
         Book hashBook = new Book("Miczkiewicz", "Pan Tadeusz");
+        bookList2.put (hashBook,"Miczkiewicz");
         long begin2 = System.nanoTime();
         bookList2.put(new Book("Author", "Title"), ("Signature number" ));
         long end2 = System.nanoTime();
@@ -82,12 +82,12 @@ class BookList {
         System.out.println("Adding new element has taken: " + (end2-begin2));
 
         begin2 = System.nanoTime();
-        bookList2.containsKey(bookList2);
+        bookList2.containsKey(hashBook);
         end2 = System.nanoTime();
         System.out.println("Search time of the key is: " + (end2-begin2));
 
         begin2 = System.nanoTime();
-        bookList2.remove(bookList2);
+        bookList2.remove(hashBook);
         end2 = System.nanoTime();
         System.out.println("Remove has taken: " + (end2-begin2));
 

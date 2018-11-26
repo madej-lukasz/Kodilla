@@ -1,13 +1,16 @@
 package com.kodilla.testing.user;
 
 public class SimpleUser {
-    private String username;
-
-    // dlaczego raz dajemy public a raz private,przekstalcamy ale po oc?
-    public SimpleUser(String username) {
+    String username;
+    String realName;
+    public SimpleUser(String username, String realName) {
         this.username = username;
+        this.realName = realName;
     }
     public String getUsername() {
         return username;
+    }
+    public String getRealName(){
+        return realName;
     }
 }
