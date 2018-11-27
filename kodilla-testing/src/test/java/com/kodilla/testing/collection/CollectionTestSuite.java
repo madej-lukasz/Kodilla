@@ -4,9 +4,9 @@ import java.util.*;
 
 public class CollectionTestSuite {
 
-    ArrayList<Integer> normalArrayList = new ArrayList<Integer>();
-    ArrayList<Integer> oddArrayExtract = new ArrayList<Integer>();
-    ArrayList<Integer> emptyArrayList = new ArrayList<Integer>();
+    ArrayList<Integer> normalArrayList = new ArrayList<>();
+    ArrayList<Integer> oddArrayExtract = new ArrayList<>();
+    ArrayList<Integer> emptyArrayList = new ArrayList<>();
 
 
     @Before
@@ -36,15 +36,20 @@ public class CollectionTestSuite {
     public void testOddNumbersExterminatorNormalList() {
 
         //Given
-        Random generator = new Random();
+      /*  Random generator = new Random();
         int randomNumber = generator.nextInt(30);
         for (int i=0; i < randomNumber; i++) {
 
-            normalArrayList.add(randomNumber);
-            if (normalArrayList.get(i) % 2 == 0) {
-                oddArrayExtract.add(normalArrayList.get(i));
-            }
+            normalArrayList.add(generator.nextInt(30));
+        */
+
+        ArrayList<Integer> normalArrayList = new ArrayList(Arrays.asList(1,2,3,4,5,6,7,8,9));
+        ArrayList<Integer> oddArrayExtract = new ArrayList(Arrays.asList(2,4,6,8));
+        for (int i=0; i < normalArrayList.size(); i++) {
+            if (normalArrayList.get(i) % 2 == 0)
+
             System.out.println(normalArrayList.get(i));
+
         }
         System.out.println("ArrayList size: " + normalArrayList.size());
         //When
