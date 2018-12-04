@@ -1,12 +1,12 @@
 package com.kodilla.testing.shape;
 
 public class Square implements Shape {
-        private double sideA;
-        private double sideB;
+        private double side;
 
-        public Square(double sideA, double sideB){
-            this.sideA = sideA;
-            this.sideB = sideB;
+
+        public Square(double side){
+            this.side = side;
+
 
         }
         @Override
@@ -16,7 +16,7 @@ public class Square implements Shape {
 
         @Override
         public double getField() {
-            return Math.pow(sideA, sideB);
+            return Math.pow(side, 2);
         }
     }
 

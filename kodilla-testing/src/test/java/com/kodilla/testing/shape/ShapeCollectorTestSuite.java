@@ -13,7 +13,7 @@ public class ShapeCollectorTestSuite {
         System.out.println("All tests are finished");
     }
     @Before
-    public static void beforeEveryTest(){
+    public void beforeEveryTest(){
         testCounter++;
         System.out.println("Preparing to execute test #" +testCounter);
     }
@@ -21,7 +21,7 @@ public class ShapeCollectorTestSuite {
     public void testAddFigure (){
         //Given
         ShapeCollector shapeCollector = new ShapeCollector();
-        Square square = new Square();
+        Square square = new Square(5);
 
         //When
         shapeCollector.addFigure(square);
@@ -33,7 +33,7 @@ public class ShapeCollectorTestSuite {
     public void testRemoveFigure () {
         //Given
         ShapeCollector shapeCollector = new ShapeCollector();
-        Square square = new Square();
+        Square square = new Square(5);
 
         //When
         shapeCollector.addFigure(square);
@@ -46,7 +46,7 @@ public class ShapeCollectorTestSuite {
     public void testGetFigure () {
         //Given
         ShapeCollector shapeCollector = new ShapeCollector();
-        Square square = new Square();
+        Square square = new Square(5);
 
         //When
         for (int n= 0; n < 10; n++) {
