@@ -1,5 +1,13 @@
 .gradle
 /build/
+build
+git
+/git/
+out
+/out/
+production
+/production/
+
 !gradle/wrapper/gradle-wrapper.jar
 
 ### STS ###

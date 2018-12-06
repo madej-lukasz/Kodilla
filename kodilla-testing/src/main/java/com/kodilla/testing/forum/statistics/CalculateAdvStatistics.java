@@ -44,6 +44,7 @@ public class CalculateAdvStatistics {
 
     }
 
+
     public void showStatistics () {
         System.out.println(this.usersCount + this.averageUsersComments + this.averagePostComments + this.averageUsersPost);
     }
