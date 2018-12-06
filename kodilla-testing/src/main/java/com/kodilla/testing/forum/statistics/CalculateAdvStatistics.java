@@ -5,28 +5,28 @@ public class CalculateAdvStatistics {
     int postUsers;
     int comments;
     public double averageUsersPost;
-    public int averageUsersComments;
-    public int averagePostComments;
+    public double averageUsersComments;
+    public double averagePostComments;
 
     public CalculateAdvStatistics(Statistics statistics) {
         this.usersCount = statistics.usersNames().size();
         if(statistics.usersNames().size() !=0) {
             double posts = statistics.postsCount();
-            this.averageUsersPost =  posts / (statistics.usersNames().size());//rzutowanie double, dlaczego nie mozna zastosowac
+            this.averageUsersPost = posts / (statistics.usersNames().size());
         }
         else {
             averageUsersPost = 0;
         }
         if(usersCount !=0){
-            int comments = statistics.commentsCount();
-            this.averagePostComments = comments / usersCount;
+            double posts = statistics.postsCount();
+            this.averagePostComments = posts / usersCount;
         }
         else {
             averagePostComments = 0;
         }
-        if(statistics.postsCount() != 0) {
+        if(usersCount != 0) {
             int comments = statistics.commentsCount();
-            this.averageUsersComments = comments / statistics.postsCount();
+            this.averageUsersComments = (double)comments / usersCount;
         }
         else {
             averageUsersComments = 0;

@@ -22,19 +22,20 @@ public class CalculateAdvStatisticsTestSuite {
     @Test
     public void test2() {
         Statistics statisticsMock = mock(Statistics.class);
-        CalculateAdvStatistics calculateAdvStatistics = new CalculateAdvStatistics(statisticsMock);
-        ArrayList<String> userNames = new ArrayList<>(); {
+        ArrayList<String> user = new ArrayList<>(); {
             for (int n = 0; n < 100; n++) {
-                userNames.add("number" + n);
+                user.add("number" + n);
             }
-            when(statisticsMock.usersNames()).thenReturn(userNames);
+            when(statisticsMock.usersNames()).thenReturn(user);
             when(statisticsMock.postsCount()).thenReturn(1000);
             when(statisticsMock.commentsCount()).thenReturn(100);
 
+            CalculateAdvStatistics calculateAdvStatistics = new CalculateAdvStatistics(statisticsMock);
 
-            Assert.assertEquals(100, calculateAdvStatistics.averageUsersComments);
-            Assert.assertEquals(1000, calculateAdvStatistics.averagePostComments);
-            Assert.assertEquals(100, calculateAdvStatistics.usersCount);
+
+            Assert.assertEquals("averageUserComments",1, calculateAdvStatistics.averageUsersComments,0.1);
+            Assert.assertEquals("averagePostComments",10, calculateAdvStatistics.averagePostComments,0.1);
+            Assert.assertEquals("usersCount",100, calculateAdvStatistics.usersCount);
 
         }
 
