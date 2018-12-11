@@ -89,4 +89,49 @@ public class BookDirectoryTestSuite {
         verify(libraryDatabaseMock, times(0)).listBooksWithCondition(anyString());
 
     }
+
+    @Test
+    public void testListBooksInHandsOfZeroBooks() {
+        //Given
+        LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);
+        BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
+        LibraryUser libraryUser = new LibraryUser("Jan", "Kowalski", "123456");
+        List<Book> resultListOfBooks = generateListOfNBooks(0);
+        when(libraryDatabaseMock.listBooksInHandsOf(anyObject())).thenReturn(resultListOfBooks);
+
+        //When
+        List<Book> theListOfBooks = bookLibrary.listBooksInHandsOf(libraryUser);
+        //Then
+        assertEquals(0, theListOfBooks.size());
+    }
+
+    @Test
+    public void testListBooksInHandsOfOneBook() {
+        //Given
+        LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);
+        BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
+        LibraryUser libraryUser = new LibraryUser("Jan", "Kowalski", "123456");
+        List<Book> resultListOfBooks = generateListOfNBooks(1);
+        when(libraryDatabaseMock.listBooksInHandsOf(anyObject())).thenReturn(resultListOfBooks);
+
+        //When
+        List<Book> theListOfBooks = bookLibrary.listBooksInHandsOf(libraryUser);
+        //Then
+        assertEquals(1, theListOfBooks.size());
+    }
+
+    @Test
+    public void testListBooksInHandsOfFiveBooks() {
+        //Given
+        LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);
+        BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
+        LibraryUser libraryUser = new LibraryUser("Jan", "Kowalski", "123456");
+        List<Book> resultListOfBooks = generateListOfNBooks(5);
+        when(libraryDatabaseMock.listBooksInHandsOf(anyObject())).thenReturn(resultListOfBooks);
+
+        //When
+        List<Book> theListOfBooks = bookLibrary.listBooksInHandsOf(libraryUser);
+        //Then
+        assertEquals(5, theListOfBooks.size());
+    }
 }
