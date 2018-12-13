@@ -38,8 +38,6 @@ public class StreamMain {
         poemBeautifier.beautify("ABC", PoemBeautifier::toLowerCase);
         poemBeautifier.beautify("ABC", PoemBeautifier::addSlash);
 
-
-
     }
 
 }
