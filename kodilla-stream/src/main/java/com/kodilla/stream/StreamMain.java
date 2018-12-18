@@ -1,46 +1,44 @@
 package com.kodilla.stream;
 
-import com.kodilla.stream.beautifier.PoemBeautifier;
-import com.kodilla.stream.iterate.NumbersGenerator;
-import com.kodilla.stream.lambda.ExecuteSaySomething;
-import com.kodilla.stream.lambda.ExpressionExecutor;
-import com.kodilla.stream.lambda.Processor;
-import com.kodilla.stream.lambda.SaySomething;
-import com.kodilla.stream.reference.FunctionalCalculator;
+
+import com.kodilla.stream.book.Book;
+import com.kodilla.stream.book.BookDirectory;
+
+import java.util.stream.Collectors;
 
 public class StreamMain {
     public static void main(String[] args) {
-        System.out.println("Welcome to module 7 - Stream");
-
-        SaySomething saySomething = new SaySomething();
-        saySomething.say();
-        Processor processor = new Processor();
-        ExecuteSaySomething executeSaySomething = new ExecuteSaySomething();
-        processor.execute(executeSaySomething);
-
-        ExpressionExecutor expressionExecutor = new ExpressionExecutor();
-        System.out.println("Calculating expressions with lambdas");
-
-        expressionExecutor.executeExpression(10, 5, (a, b) -> a + b);
-        expressionExecutor.executeExpression(10, 5, (a, b) -> a - b);
-        expressionExecutor.executeExpression(10, 5, (a, b) -> a * b);
-        expressionExecutor.executeExpression(10, 5, (a, b) -> a / b);
-
-        System.out.println("Calculating expressions with method references");
-        expressionExecutor.executeExpression(3, 4, FunctionalCalculator::multiplyAByB);
-        expressionExecutor.executeExpression(3, 4, FunctionalCalculator::addAToB);
-        expressionExecutor.executeExpression(3, 4, FunctionalCalculator::subBFromA);
-        expressionExecutor.executeExpression(3, 4, FunctionalCalculator::divideAByB);
-
-        System.out.println("PoemBeautifier");
-        PoemBeautifier poemBeautifier = new PoemBeautifier();
-        poemBeautifier.beautify("Something",text -> "ABC" + text + "ABC");
-        poemBeautifier.beautify("xyz", PoemBeautifier::toUpperCase);
-        poemBeautifier.beautify("ABC", PoemBeautifier::toLowerCase);
-        poemBeautifier.beautify("ABC", PoemBeautifier::addSlash);
-
-        System.out.println("Using Stream to generate even numbers from 1 to 20");
-        NumbersGenerator.generateEven(20);
+         // People.getList().stream().
+         //     map(s -> s.toUpperCase()).
+         //     map(String::toLowerCase).
+         //       forEach(System.out::println);
+         //       filter(s -> s.length() > 11).
+         //       forEach(s -> System.out.println(s));
+        /*        map(String::toUpperCase)
+                .filter(s -> s.length() > 11)
+                .map(s -> s.substring(0, s.indexOf(' ') + 2) + ".")
+                .filter(s -> s.substring(0, 1).equals("M"))
+                .forEach(System.out::println);
+                */
+                BookDirectory theBookDirectory = new BookDirectory();
+               /* theBookDirectory.getList().stream()
+                .filter(book -> book.getYearOfPublication() > 2005)
+                .forEach(System.out::println);
+                */
+               /*
+        Map<String, Book> theResultMapOfBooks = theBookDirectory.getList().stream()
+                .filter(book -> book.getYearOfPublication() >2005)
+                .collect(Collectors.toMap(Book::getSignature, book ->book));
+        System.out.println("#elements: " + theResultMapOfBooks.size());
+        theResultMapOfBooks.entrySet().stream()
+                .map(entry -> entry.getKey() + ":" + entry.getValue())
+                .forEach(System.out::println);
+        */
+               String theResultStringOfBooks = theBookDirectory.getList().stream()
+                       .filter(book -> book.getYearOfPublication() > 2005)
+                       .map(Book::toString)
+                       .collect(Collectors.joining("'\n","<<",">>"));
+        System.out.println(theResultStringOfBooks);
 
     }
 
