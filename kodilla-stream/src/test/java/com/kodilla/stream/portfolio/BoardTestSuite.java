@@ -6,6 +6,7 @@ import org.junit.Test;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.OptionalDouble;
 
 import static java.util.stream.Collectors.toList;
 
@@ -133,6 +134,24 @@ public class BoardTestSuite {
 
         //Then
         Assert.assertEquals(2, longTasks);
+    }
+    @Test
+    public void testAddTaskListAverageWorkingOnTask() {
+        //Given
+        Board project = prepareTestData();
+
+        //When
+        List<TaskList> inProgressTasks = new ArrayList<>();
+        inProgressTasks.add(new TaskList("In progress"));
+        OptionalDouble result = project.getTaskLists().stream()
+                .filter(inProgressTasks::contains)
+                .flatMap(l -> l.getTasks().stream())
+                .map(t -> LocalDate.now().compareTo(t.getCreated()))
+                .mapToDouble(t ->t)
+                .average();
+
+        //Then
+        Assert.assertEquals(5.0, result.getAsDouble(), 0.001);
     }
 
 }
