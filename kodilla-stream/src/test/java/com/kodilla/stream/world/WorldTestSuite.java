@@ -27,7 +27,7 @@ public class WorldTestSuite {
         BigInteger totalPeopleQuantity = world.getPeopleQuantity();
 
         //Then
-        BigInteger expected = new BigInteger("5498463");
+        BigInteger expected = new BigInteger("44456299576");
         Assert.assertEquals(expected, totalPeopleQuantity);
 
     }
