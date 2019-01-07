@@ -13,7 +13,7 @@ public class ArrayOperationsTestSuite {
         double result = ArrayOperations.getAverage(numbers);
 
         //Then
-        Assert.assertEquals( 12.50, result, 0.001);
+        Assert.assertEquals( 10.50, result, 0.001);
 
 
     }
