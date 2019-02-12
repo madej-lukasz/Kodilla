@@ -28,6 +28,6 @@ public class CalculatorTestSuite {
         Assert.assertEquals(12, subResult,0.001);
         Assert.assertEquals(9, mulResult,0.001);
         Assert.assertEquals(10, divResult,0.001);
-        
+
     }
 }
