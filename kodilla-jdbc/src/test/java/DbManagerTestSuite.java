@@ -41,8 +41,8 @@ public class DbManagerTestSuite {
         DbManager dbManager = DbManager.getInstance();
         //When
         String sqlQuery ="SELECT FIRSTNAME, LASTNAME\n" +
-                "FROM USERS, POSTS\n" + "," +
-                "WHERE USERS.ID = POSTS.USER_ID\n;" +
+                "FROM USERS, POSTS\n" +
+                "WHERE USERS.ID = POSTS.USER_ID\n" +
                 "GROUP BY POSTS.USER_ID\n" +
                 "HAVING COUNT(*) >=2;";
         Statement statement = dbManager.getConnection().createStatement();
